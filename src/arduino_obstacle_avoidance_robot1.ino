@@ -1,12 +1,12 @@
 #define RMS 5
 #define RMP 6
 #define RMN 7
-#define LMS 4
+#define LMS 3
 #define LMP 2
-#define LMN 3
+#define LMN 4
 
-const int trigPin = 12;
-const int echoPin = 11;
+const int trigPin = 11;
+const int echoPin = 12;
 
 float duration, distance;
 
@@ -19,15 +19,25 @@ void setup() {
   pinMode(LMS, OUTPUT);
   pinMode(LMP, OUTPUT);
   pinMode(LMN, OUTPUT);
+  
+  digitalWrite (RMS, HIGH);
+  digitalWrite (LMS, HIGH);
  
   Serial.begin(9600);
 }
 
 void loop() {
-  
+  sense();
+  if(distance>50){
+    foward();
+  }
+  else{
+    stops();
+  }
 }
 
-void sense() {
+void sense()
+{
  digitalWrite(trigPin, LOW);
   delayMicroseconds(2);
   digitalWrite(trigPin, HIGH);
@@ -43,4 +53,59 @@ void sense() {
 }
 
 
+void foward ()
+{
 
+  digitalWrite (RMP, HIGH);
+  digitalWrite (RMN, LOW);
+  digitalWrite (LMP, HIGH);
+  digitalWrite (LMN, LOW);
+}
+
+
+
+void stops()
+{
+ 
+  digitalWrite (RMP, LOW);
+  digitalWrite (RMN, LOW);
+  digitalWrite (LMP, LOW);
+  digitalWrite (LMN, LOW);
+}
+
+
+void backward()
+{
+ 
+  digitalWrite (RMP, LOW);
+  digitalWrite (RMN, HIGH);
+  digitalWrite (LMP, LOW);
+  digitalWrite (LMN, HIGH);
+}
+
+void left()
+{
+ 
+  digitalWrite (RMP, HIGH);
+  digitalWrite (RMN, LOW);
+  digitalWrite (LMP, LOW);
+  digitalWrite (LMN, LOW);
+}
+
+
+void right()
+{
+ 
+  digitalWrite (RMP, LOW);
+  digitalWrite (RMN, LOW);
+  digitalWrite (LMP, HIGH);
+  digitalWrite (LMN, LOW);
+}
+
+
+
+
+
+
+
+  
