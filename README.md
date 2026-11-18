@@ -38,4 +38,4 @@ An autonomous obstacle-avoiding robot car powered by an **Arduino Uno**, driven 
 3. **Surrounding Scan:** The micro servo pans the ultrasonic sensor to the left and right to check clearance distances.
 4. **Autonomous Steering:** The robot compares left and right path distances and turns toward the clearer side before resuming forward movement.
 
---- 
+---  
