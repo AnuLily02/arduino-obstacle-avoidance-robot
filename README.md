@@ -39,3 +39,4 @@ An autonomous obstacle-avoiding robot car powered by an **Arduino Uno**, driven 
 4. **Autonomous Steering:** The robot compares left and right path distances and turns toward the clearer side before resuming forward movement.
 
 ---  
+ 
